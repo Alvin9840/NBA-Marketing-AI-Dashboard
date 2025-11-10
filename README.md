@@ -12,6 +12,129 @@ An agentic AI system designed to revolutionize fan engagement for NBA marketing 
 - **Role**: Analyzes director requests and delegates to specialist agents
 - **Communication**: Uses Agent Communication Protocol (ACP)
 
+```mermaid
+graph TB
+    %% Define styles
+    classDef coordinator fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef specialist fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef tool fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+    classDef data fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef external fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+    
+    %% User Interface
+    User(["🎯 Senior NBA Marketing Director<br/>Natural Language Queries"])
+    
+    %% Coordinator Agent
+    CA[("🤖 Coordinator Agent<br/>Manager/BeeAI Workflow<br/>- Request Analysis<br/>- Task Delegation<br/>- Response Synthesis")]
+    class CA coordinator
+    
+    %% Specialist Agents
+    SA[("📊 Sentiment Agent<br/>Fan Analysis Specialist<br/>- Sentiment Analysis<br/>- Data Retrieval<br/>- Pattern Recognition")]
+    class SA specialist
+    
+    CA1[("🎨 Creative Agent<br/>Content Generation Specialist<br/>- Content Creation<br/>- Event Planning<br/>- Creative Prompting")]
+    class CA1 specialist
+    
+    PA[("🔮 Predictive Agent<br/>Trend Forecasting Specialist<br/>- Predictive Modeling<br/>- Trend Analysis<br/>- Strategic Planning")]
+    class PA specialist
+    
+    %% Tools Layer
+    RT[("🔍 RAG Tool<br/>Knowledge Retrieval<br/>- Fan Reports<br/>- Historical Data")]
+    class RT tool
+    
+    DT[("📈 Data Tool<br/>Data Analysis<br/>- Fan Comments<br/>- Game Performance<br/>- Engagement Metrics")]
+    class DT tool
+    
+    WT[("🧠 Watsonx Tool<br/>IBM watsonx.ai Integration<br/>- Granite/Llama Models<br/>- Content Generation<br/>- API Management")]
+    class WT tool
+    
+    FT[("📊 Forecast Tool<br/>Predictive Analytics<br/>- Trend Forecasting<br/>- Behavior Prediction<br/>- Strategic Insights")]
+    class FT tool
+    
+    %% Data Sources
+    FC[("💬 Fan Comments DB<br/>JSON Database<br/>- Platform Data<br/>- Sentiment Labels<br/>- Engagement Metrics")]
+    class FC data
+    
+    GD[("🏀 Game Data<br/>Performance Database<br/>- Player Stats<br/>- Game Results<br/>- Highlights")]
+    class GD data
+    
+    HD[("📚 Historical Data<br/>Trend Database<br/>- Engagement History<br/>- Fan Behavior<br/>- Performance Trends")]
+    class HD data
+    
+    %% Knowledge Base
+    KB[("📖 Knowledge Base<br/>- Fan Reports (PDF)<br/>- Historical Data (DOCX)<br/>- Insights & Analysis")]
+    class KB data
+    
+    %% External Services
+    WX[("☁️ IBM watsonx.ai<br/>Cloud Platform<br/>- Granite Models<br/>- Llama Models<br/>- API Access")]
+    class WX external
+    
+    %% BeeAI Framework
+    BF[("🐝 BeeAI Framework<br/>- Agent Communication Protocol<br/>- Workflow Management<br/>- Task Coordination")]
+    class BF external
+    
+    %% Connections
+    User --> CA
+    
+    CA --> SA
+    CA --> CA1  
+    CA --> PA
+    
+    SA --> RT
+    SA --> DT
+    
+    CA1 --> WT
+    CA1 --> DT
+    
+    PA --> FT
+    PA --> DT
+    
+    RT --> KB
+    DT --> FC
+    DT --> GD
+    DT --> HD
+    
+    WT --> WX
+    FT --> HD
+    
+    BF -.-> CA
+    BF -.-> SA
+    BF -.-> CA1
+    BF -.-> PA
+    
+    %% Subgraphs for organization
+    subgraph "🎯 User Interface Layer"
+        User
+    end
+    
+    subgraph "🤖 Agent Layer"
+        CA
+        SA
+        CA1
+        PA
+    end
+    
+    subgraph "🛠️ Tools Layer"
+        RT
+        DT
+        WT
+        FT
+    end
+    
+    subgraph "💾 Data Layer"
+        FC
+        GD
+        HD
+        KB
+    end
+    
+    subgraph "☁️ External Services"
+        WX
+        BF
+    end
+```
+
+
 ### Specialist Agents (The Team)
 
 1. **SentimentAgent** - Fan Sentiment Analysis
@@ -49,15 +172,33 @@ An agentic AI system designed to revolutionize fan engagement for NBA marketing 
 ## 🛠️ Installation
 
 1. Clone the repository
+
+```bash
+git clone https://github.com/Alvin9840/IBM-AI-Program.git
+```
+
 2. Install dependencies:
-  
-   pip install -r requirements.txt
-   3. Set up your IBM watsonx.ai credentials (for production)
+
+```bash  
+pip install -r requirements.txt
+```
+
+3. Set up your IBM watsonx.ai credentials (for production)
+
+```bash
+# IBM watsonx.ai Configuration
+WATSONX_API_KEY=your_ibm_watsonx_api_key_here
+WATSONX_URL=https://us-south.ml.cloud.ibm.com
+WATSONX_PROJECT_ID=your_project_id_here
+```
 
 4. Run the application:
-  
-   python main.py
-   ## 🎮 Usage
+
+```bash  
+python main.py
+```   
+
+## 🎮 Usage
 
 ### Interactive Mode
 python main.py### Demo Mode
