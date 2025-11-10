@@ -14,13 +14,6 @@ An agentic AI system designed to revolutionize fan engagement for NBA marketing 
 
 ```mermaid
 graph TB
-    %% Define styles
-    classDef coordinator fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    classDef specialist fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-    classDef tool fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
-    classDef data fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    classDef external fill:#fce4ec,stroke:#880e4f,stroke-width:2px
-    
     %% User Interface
     User(["🎯 Senior NBA Marketing Director<br/>Natural Language Queries"])
     
