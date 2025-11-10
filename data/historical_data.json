@@ -1,0 +1,28 @@
+{
+    "season": "2024-2025",
+    "trends": {
+      "fan_engagement": {
+        "social_media_growth": 15.5,
+        "ticket_sales": 12.3,
+        "merchandise_sales": 18.7
+      },
+      "content_preferences": {
+        "player_highlights": 0.35,
+        "game_analysis": 0.25,
+        "behind_the_scenes": 0.20,
+        "fan_interactions": 0.20
+      },
+      "platform_usage": {
+        "Twitter": 0.30,
+        "Instagram": 0.25,
+        "TikTok": 0.20,
+        "YouTube": 0.15,
+        "Reddit": 0.10
+      }
+    },
+    "predictions": {
+      "next_month_engagement": "expected_increase",
+      "content_type_trend": "interactive_content",
+      "fan_behavior": "more_digital_interaction"
+    }
+  }

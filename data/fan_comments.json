@@ -1,0 +1,86 @@
+{
+    "game_id": "NBA-2024-001",
+    "game_date": "2024-11-10",
+    "home_team": "Los Angeles Lakers",
+    "away_team": "Golden State Warriors",
+    "comments": [
+      {
+        "id": "comment_001",
+        "user": "basketball_fan_2024",
+        "platform": "Twitter",
+        "timestamp": "2024-11-10T20:15:00Z",
+        "text": "LeBron's performance tonight was absolutely incredible! The way he dominated the game is why he's the GOAT. Lakers fans are so lucky!",
+        "sentiment": "positive",
+        "engagement": 1250
+      },
+      {
+        "id": "comment_002",
+        "user": "warriors_fan_99",
+        "platform": "Reddit",
+        "timestamp": "2024-11-10T21:30:00Z",
+        "text": "Steph Curry couldn't hit a shot tonight. What happened to the sharpshooter? Warriors need to step up their defense big time.",
+        "sentiment": "negative",
+        "engagement": 890
+      },
+      {
+        "id": "comment_003",
+        "user": "nbanalysis_pro",
+        "platform": "Facebook",
+        "timestamp": "2024-11-10T22:45:00Z",
+        "text": "Great game overall! The Lakers' teamwork was impressive. Looking forward to the next matchup. Both teams showed real potential.",
+        "sentiment": "positive",
+        "engagement": 567
+      },
+      {
+        "id": "comment_004",
+        "user": "casual_viewer",
+        "platform": "Instagram",
+        "timestamp": "2024-11-10T23:15:00Z",
+        "text": "The halftime show was amazing! Can't wait for more NBA games. The energy in the arena must have been electric.",
+        "sentiment": "positive",
+        "engagement": 2340
+      },
+      {
+        "id": "comment_005",
+        "user": "stats_nerd",
+        "platform": "Twitter",
+        "timestamp": "2024-11-11T00:30:00Z",
+        "text": "Lakers won 115-108. LeBron: 28pts, 12reb, 8ast. Steph: 24pts, 6reb, 7ast. Close game but execution made the difference.",
+        "sentiment": "neutral",
+        "engagement": 445
+      },
+      {
+        "id": "comment_006",
+        "user": "young_fan",
+        "platform": "TikTok",
+        "timestamp": "2024-11-11T01:00:00Z",
+        "text": "Lakers championship or nah? This team is fire! 🔥🔥 #LakersNation #NBA",
+        "sentiment": "positive",
+        "engagement": 5670
+      },
+      {
+        "id": "comment_007",
+        "user": "critic_fan",
+        "platform": "YouTube",
+        "timestamp": "2024-11-11T02:15:00Z",
+        "text": "Warriors' shooting percentage was terrible tonight. They need to work on their offense. Lakers defense was too good.",
+        "sentiment": "negative",
+        "engagement": 1234
+      },
+      {
+        "id": "comment_008",
+        "user": "family_fan",
+        "platform": "Facebook",
+        "timestamp": "2024-11-11T03:00:00Z",
+        "text": "Brought the kids to the game and they loved it! The atmosphere was great. Looking forward to family game night.",
+        "sentiment": "positive",
+        "engagement": 345
+      }
+    ],
+    "post_types": [
+      {"type": "celebration", "count": 3},
+      {"type": "criticism", "count": 2},
+      {"type": "analysis", "count": 2},
+      {"type": "general_excitement", "count": 1}
+    ]
+  }

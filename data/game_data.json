@@ -1,0 +1,39 @@
+{
+    "games": [
+      {
+        "game_id": "NBA-2024-001",
+        "date": "2024-11-10",
+        "home_team": "Los Angeles Lakers",
+        "away_team": "Golden State Warriors",
+        "home_score": 115,
+        "away_score": 108,
+        "key_players": {
+          "LeBron James": {"points": 28, "rebounds": 12, "assists": 8},
+          "Stephen Curry": {"points": 24, "rebounds": 6, "assists": 7},
+          "Anthony Davis": {"points": 22, "rebounds": 14, "assists": 3}
+        },
+        "highlights": [
+          "LeBron's triple-double performance",
+          "Curry's long-range shooting struggles",
+          "Lakers' strong defensive showing"
+        ]
+      },
+      {
+        "game_id": "NBA-2024-002",
+        "date": "2024-11-12",
+        "home_team": "Boston Celtics",
+        "away_team": "Milwaukee Bucks",
+        "home_score": 118,
+        "away_score": 112,
+        "key_players": {
+          "Jaylen Brown": {"points": 26, "rebounds": 8, "assists": 5},
+          "Giannis Antetokounmpo": {"points": 30, "rebounds": 15, "assists": 6}
+        },
+        "highlights": [
+          "Giannis' dominant inside presence",
+          "Celtics' three-point shooting barrage",
+          "Close fourth quarter battle"
+        ]
+      }
+    ]
+  }
