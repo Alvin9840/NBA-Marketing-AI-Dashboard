@@ -31,3 +31,8 @@ ibm-watsonx-ai>=1.0.0
 
 # Environment variables
 python-dotenv>=1.0.0
+
+# nba data retrieval
+nba-api
+pandas
+numpy
