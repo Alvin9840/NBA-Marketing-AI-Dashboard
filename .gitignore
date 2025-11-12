@@ -1,2 +1,4 @@
 ibm_env/
 .env
+*.pyc
+.DS_Store
