@@ -5,9 +5,29 @@ from pathlib import Path
 from datetime import datetime
 import time 
 
-# Streamlit run: streamlit run streamlit_frontend.py
+# streamlit run streamlit_frontend.py
 
 # --- Setup local database and paths ---
+workflow_steps = [
+    {
+        "iteration": 1,
+        "agent": "Coordinator",
+        "actions": [
+            {"tool": "forecast_trends", "params": {"question": "...", "timeframe": "..."}}
+        ],
+        "status": "processing"
+    },
+    {
+        "iteration": 1,
+        "agent": "PredictiveAgent",
+        "actions": [
+            {"tool": "get_performance_metrics", "params": {"team_name": "Lakers", "num_games": 10}},
+            {"tool": "calculate_momentum_score", "params": {"team_name": "Heat"}}
+        ],
+        "status": "success"
+    },
+    # ... more steps
+]
 DATA_DIR = Path("data")
 DATA_DIR.mkdir(exist_ok=True)
 SAVE_PATH = DATA_DIR / "nba_chat_sessions.json"
@@ -73,41 +93,38 @@ for message in st.session_state.messages:
 
 # --- Chat input and agent response logic ---
 if prompt := st.chat_input("What would you like to ask?"):
-    # Add user message to message history and display
+    # Display user message and add to session history
     st.chat_message("user").markdown(prompt)
     st.session_state.messages.append({"role": "user", "content": prompt})
 
-    # Process user prompt using CoordinatorAgent
-    result = st.session_state.coordinator.process_director_request(prompt)
-    response = result["final_response"]
-
-    # Add agent response to message history and display
+    # Assistant response with spinner during processing
     with st.chat_message("assistant"):
         with st.spinner("Processing your message..."):
+            # Call your coordinator agent to process user input
             result = st.session_state.coordinator.process_director_request(prompt)
             response = result["final_response"]
+
+        # Display AI's response
         st.markdown(response)
-        # Optionally display expanded agent workflow details
-        if result.get("tool_calls") or result.get("agent_results"):
-            with st.expander("🤖 Agent Workflow Details", expanded=False):
-                st.write(f"**Iterations:** {result.get('iterations', 0)}")
-                # Show called agents/tools
-                if result.get("tool_calls"):
-                    st.write("**Agents Called:**")
-                    agents_used = set()
-                    for tool_call in result["tool_calls"]:
-                        agent_name = tool_call["tool"]
-                        agents_used.add(agent_name)
-                        st.write(f"• {agent_name} (Iteration {tool_call['iteration']})")
-                    if agents_used:
-                        agent_list = ", ".join(sorted(agents_used))
-                        st.success(f"🤖 **Agents that contributed:** {agent_list}")
-                # Show individual agent results summary
-                if result.get("agent_results"):
-                    st.write("**Agent Results:**")
-                    for agent_name, results in result["agent_results"].items():
-                        status = "✅ Success" if all(r.get("status") == "success" for r in results) else "⚠️ Partial/Mixed"
-                        st.write(f"• **{agent_name}:** {status} ({len(results)} calls)")
+
+        with st.expander("🤖 Agent Workflow Details", expanded=False):
+            st.markdown("#### Agent Workflow Reasoning (Step-by-step)")
+            for idx, step in enumerate(workflow_steps, 1):
+                header = f"{idx}. Iteration {step['iteration']} – **{step['agent']}**"
+                status_emoji = (
+                    "✅" if step.get("status", "") == "success"
+                    else "🔄" if step.get("status", "") == "processing"
+                    else "⚠️"
+                )
+                st.markdown(f"{status_emoji} {header}")
+                for action in step.get("actions", []):
+                    param_str = ", ".join([f"{k}: {v}" for k, v in action.get("params", {}).items()])
+                    st.markdown(
+                        f"&emsp;• `{action['tool']}` <span style='color:grey'>({param_str})</span>",
+                        unsafe_allow_html=True,
+                    )
+            st.markdown("✅ **Workflow Completed**")
+
 
     st.session_state.messages.append({"role": "assistant", "content": response})
     # Save all sessions after message update
