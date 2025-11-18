@@ -198,6 +198,7 @@ class CoordinatorAgent:
         Be concise but comprehensive in your final answer.
         Do not give JSON outputs, rather the final analysis
         ALWAYS call tools first THEN make analysis and decisions once you have enough data
+        Call each tool a MAXIMUM of 3 times
 
         Your response:"""
             
