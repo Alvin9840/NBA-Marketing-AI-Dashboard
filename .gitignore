@@ -4,4 +4,4 @@ ibm_env/
 .DS_Store
 
 data/nba_chat_sessions.json
-
+.streamlit/*

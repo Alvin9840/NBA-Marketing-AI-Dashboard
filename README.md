@@ -8,9 +8,9 @@ An agentic AI system designed to revolutionize fan engagement for NBA marketing 
 ## 🏗️ Architecture
 
 ### The Coordinator Agent (The Manager)
-- **Framework**: watsonx.ai Python SDK
+- **Framework**: BeeAI Workflow
 - **Role**: Analyzes director requests and delegates to specialist agents
-- **Communication**: Uses Agents-as-tools
+- **Communication**: Uses Agent Communication Protocol (ACP)
 
 ```mermaid
 graph TB
@@ -18,7 +18,7 @@ graph TB
     User(["🎯 Senior NBA Marketing Director<br/>Natural Language Queries"])
     
     %% Coordinator Agent
-    CA[("🤖 Coordinator Agent<br/>Manager/wastonx.ai Python SDK<br/>- Request Analysis<br/>- Task Delegation<br/>- Response Synthesis")]
+    CA[("🤖 Coordinator Agent<br/>Manager/BeeAI Workflow<br/>- Request Analysis<br/>- Task Delegation<br/>- Response Synthesis")]
     class CA coordinator
     
     %% Specialist Agents
@@ -62,8 +62,8 @@ graph TB
     WX[("☁️ IBM watsonx.ai<br/>Cloud Platform<br/>- Granite Models<br/>- Llama Models<br/>- API Access")]
     class WX external
     
-    %% watsonx.ai Python SDK
-    BF[("🐝 watsonx.ai Python SDK<br/>- Agents-as-tools <br/>- Workflow Management<br/>- Task Coordination")]
+    %% BeeAI Framework
+    BF[("🐝 BeeAI Framework<br/>- Agent Communication Protocol<br/>- Workflow Management<br/>- Task Coordination")]
     class BF external
     
     %% Connections
@@ -176,31 +176,57 @@ git clone https://github.com/Alvin9840/NBA-Marketing-AI-Dashboard.git
 pip install -r requirements.txt
 ```
 
-3. Set up your IBM watsonx.ai credentials (for production)
+3. Set up your Streamlit secrets file:
 
-```bash
-# IBM watsonx.ai Configuration
-WATSONX_API_KEY=your_ibm_watsonx_api_key_here
-WATSONX_URL=https://us-south.ml.cloud.ibm.com
-WATSONX_PROJECT_ID=your_project_id_here
+Create a `.streamlit/secrets.toml` file in your project root:
+
+```toml
+[watsonx]
+api_key = "your_ibm_watsonx_api_key_here"
+url = "https://us-south.ml.cloud.ibm.com"
+project_id = "your_project_id_here"
+
+[models]
+coordinator_id = "ibm/granite-3-8b-instruct"
+predictive_id = "meta-llama/llama-3-3-70b-instruct"
+sentiment_id = "meta-llama/llama-3-3-70b-instruct"
+
+[models.coordinator_parameters]
+decoding_method = "greedy"
+max_new_tokens = 2000
+temperature = 0.1
+top_p = 0.9
+top_k = 50
+
+[models.predictive_parameters]
+decoding_method = "greedy"
+max_new_tokens = 1500
+temperature = 0.3
+repetition_penalty = 1.1
+
+[models.sentiment_parameters]
+decoding_method = "greedy"
+max_new_tokens = 1500
+min_new_tokens = 1
+temperature = 0.3
+top_k = 50
+top_p = 0.9
+repetition_penalty = 1.2
 ```
+
+**⚠️ Security Note**: Add `.streamlit/secrets.toml` to your `.gitignore` file to prevent committing sensitive credentials.
 
 4. Run the application:
 
 ```bash  
 streamlit run streamlit_frontend.py
-
-```   
+```
 
 ## 🎮 Usage
 
 ### Interactive Mode
-python main.py
-
-### Demo Mode
-python main.py demo
-
-### Example Queries
+python main.py### Demo Mode
+python main.py demo### Example Queries
 - "Summarize what fans are saying about our last game and suggest content hooks"
 - "What are fans saying about the Lakers vs Warriors game?"
 - "Generate content hooks based on recent performances"
@@ -215,6 +241,7 @@ The tool includes mock data for:
 
 ## 🔧 Configuration
 
+- `config.py`: Application
 - `config/beeai_config.yaml`: BeeAI workflow configuration
 - `config/saiber_tools.yaml`: Tool endpoints and parameters
 - `data/`: Sample data files
@@ -222,7 +249,7 @@ The tool includes mock data for:
 
 ## 🤖 AI Foundation
 
-Built on **watsonx.ai Python SDK**:
+Built on **BeeAI Framework** and **IBM watsonx.ai**:
 - **Backend Brain**: IBM Granite models for reasoning and generation
 - **Agent Communication**: Structured protocol for agent coordination
 - **Tool Integration**: Seamless connection to data sources and AI models
