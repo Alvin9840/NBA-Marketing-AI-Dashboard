@@ -11,9 +11,9 @@ https://nbamarketingapp.streamlit.app/
 ## 🏗️ Architecture
 
 ### The Coordinator Agent (The Manager)
-- **Framework**: BeeAI Workflow
+- **Framework**: watsonx.ai Python SDK
 - **Role**: Analyzes director requests and delegates to specialist agents
-- **Communication**: Uses Agent Communication Protocol (ACP)
+- **Communication**: Uses Agents-as-tools
 
 ```mermaid
 graph TB
@@ -21,7 +21,7 @@ graph TB
     User(["🎯 Senior NBA Marketing Director<br/>Natural Language Queries"])
     
     %% Coordinator Agent
-    CA[("🤖 Coordinator Agent<br/>Manager/BeeAI Workflow<br/>- Request Analysis<br/>- Task Delegation<br/>- Response Synthesis")]
+    CA[("🤖 Coordinator Agent<br/>Manager/wastonx.ai Python SDK<br/>- Request Analysis<br/>- Task Delegation<br/>- Response Synthesis")]
     class CA coordinator
     
     %% Specialist Agents
@@ -65,8 +65,8 @@ graph TB
     WX[("☁️ IBM watsonx.ai<br/>Cloud Platform<br/>- Granite Models<br/>- Llama Models<br/>- API Access")]
     class WX external
     
-    %% BeeAI Framework
-    BF[("🐝 BeeAI Framework<br/>- Agent Communication Protocol<br/>- Workflow Management<br/>- Task Coordination")]
+    %% watsonx.ai Python SDK
+    BF[("🐝 watsonx.ai Python SDK<br/>- Agents-as-tools <br/>- Workflow Management<br/>- Task Coordination")]
     class BF external
     
     %% Connections
@@ -228,8 +228,12 @@ streamlit run streamlit_frontend.py
 ## 🎮 Usage
 
 ### Interactive Mode
-python main.py### Demo Mode
-python main.py demo### Example Queries
+python main.py
+
+### Demo Mode
+python main.py demo
+
+### Example Queries
 - "Summarize what fans are saying about our last game and suggest content hooks"
 - "What are fans saying about the Lakers vs Warriors game?"
 - "Generate content hooks based on recent performances"
@@ -245,14 +249,12 @@ The tool includes mock data for:
 ## 🔧 Configuration
 
 - `config.py`: Application
-- `config/beeai_config.yaml`: BeeAI workflow configuration
-- `config/saiber_tools.yaml`: Tool endpoints and parameters
 - `data/`: Sample data files
 - `knowledge/`: Knowledge base files (mock)
 
 ## 🤖 AI Foundation
 
-Built on **BeeAI Framework** and **IBM watsonx.ai**:
+Built on **watsonx.ai Python SDK**:
 - **Backend Brain**: IBM Granite models for reasoning and generation
 - **Agent Communication**: Structured protocol for agent coordination
 - **Tool Integration**: Seamless connection to data sources and AI models
