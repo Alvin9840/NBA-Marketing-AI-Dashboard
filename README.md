@@ -1,6 +1,8 @@
 # NBA Marketing Agentic AI Dashboard
 
 An agentic AI system designed to revolutionize fan engagement for NBA marketing directors. This tool provides automated fan sentiment analysis, AI-driven event planning, and predictive trend forecasting to make planning easy and reliable.
+You can try out this tool via the link:
+https://nbamarketingapp.streamlit.app/
 
 ## 🎯 Target User
 **Senior NBA Marketing Director** - Experience "relief" and "easy, reliable planning" through AI-powered insights.
